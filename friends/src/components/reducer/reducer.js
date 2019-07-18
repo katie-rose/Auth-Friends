@@ -21,24 +21,24 @@ export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_START:
       return {
-        ...state, 
+        ...state,
         loggingIn: true,
         error: false
       };
-      case LOGIN_SUCCESS:
+    case LOGIN_SUCCESS:
       return {
-        ...state, 
+        ...state,
         loggingIn: false,
         error: false,
-        token: localStorage.getItem('token')
+        token: localStorage.getItem("token")
       };
-          case LOGIN_FAILURE:
+    case LOGIN_FAILURE:
       return {
-        ...state, 
+        ...state,
         loggingIn: false,
         error: action.payload
       };
-      case FETCH_FRIENDS_START:
+    case FETCH_FRIENDS_START:
       return {
         ...state,
         loading: true,

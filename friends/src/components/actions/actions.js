@@ -14,28 +14,16 @@ export const ADD_FRIEND_FAILURE = "ADD_FRIEND_FAILURE";
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
 
-return axios
-.post ('http://localhost:5000/api/login', creds)
-.then(res => {
-  localStorage.setItem('token', res.data.payload);
-  dispatch({ type: LOGIN_SUCCESS });
-})
-.catch(err => {
-  dispatch({ type: LOGIN_FAILURE, payload: true });
-});
+  return axios
+    .post("http://localhost:5000/api/login", creds)
+    .then(res => {
+      localStorage.setItem("token", res.data.payload);
+      dispatch({ type: LOGIN_SUCCESS });
+    })
+    .catch(err => {
+      dispatch({ type: LOGIN_FAILURE, payload: true });
+    });
 };
-
-// export const delete = id => dispatch => {
-
-//   return axios
-// .delete('http://localhost:5000/api/${id}')
-// .then(res => {
-//   dispatch({ type: DELETE, payload: id});
-// })
-// .catch(err => {
-//   console.log(err)
-// });
-// };
 
 export const fetchFriends = () => dispatch => {
   dispatch({ type: FETCH_FRIENDS_START });

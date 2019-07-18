@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
-import { Form, Input, Button } from "reactstrap";
-import { TweenLite, Power1 } from "gsap";
+import { Form, Input } from "reactstrap";
 
 import { fetchFriends, addFriend } from "./actions/actions";
 
@@ -23,13 +22,10 @@ class Friends extends React.Component {
           <>
             {this.props.friends.map(friend => (
               <div className="card">
-                <img
-                  className="friend-image"
-                  src={friend.image}
-                  alt="Card image cap"
-                />
                 <div className="card-body">
-                  <h1>{friend.name}</h1>
+                  <h1>Name: {friend.name}</h1>
+                  <h3>Age: {friend.age}</h3>
+                  <h3>Email: </h3>
                   <h3>{friend.email}</h3>
                 </div>
               </div>
@@ -78,7 +74,7 @@ class Friends extends React.Component {
     );
   }
   componentDidMount() {
-       this.props.fetchFriends();
+    this.props.fetchFriends();
   }
 
   handleChanges = e => {
